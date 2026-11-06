@@ -82,6 +82,149 @@
         </section>
 
         <!-- Demais seções (Serviços, Peças, Portfólio, Blog, Modal, Rodapé) mantêm-se aqui -->
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #06b6d4;
+}
+
+/* Transições Suaves */
+.modal-backdrop {
+    backdrop-filter: blur(8px);
+}
+
+// Dados dos Artigos do Blog
+const articles = {
+    1: {
+        title: "Por que trocar o HD por um SSD transforma a velocidade do seu Computador ou Notebook?",
+        date: "04 de Novembro, 2026",
+        category: "Hardware & Desempenho",
+        content: `
+            <p class="mb-4">Se o seu computador ou notebook demorar vários minutos para iniciar, travar ao abrir o navegador ou apresentar 100% de uso de disco no Gestor de Tarefas, o problema provavelmente não é o processador ou a memória RAM, mas sim o **disco rígido (HD)**.</p>
+            
+            <h4 class="text-lg font-bold text-white mt-6 mb-3">O Gargalo do Disco Rígido Tradicional</h4>
+            <p class="mb-4">Os HDs utilizam agulhas magnéticas e discos mecânicos que giram a 5400 ou 7200 RPM. A taxa de leitura dificilmente passa dos 100 MB/s. Já um **SSD SATA** atinge taxas acima de 550 MB/s, e um **SSD NVMe (M.2)** pode ultrapassar os 3.500 MB/s a 7.000 MB/s!</p>
+
+            <h4 class="text-lg font-bold text-white mt-6 mb-3">Principais Benefícios do Upgrade:</h4>
+            <ul class="list-disc pl-5 space-y-2 mb-6">
+                <li><strong>Inicialização ultra-rápida:</strong> O Windows carrega em menos de 15 segundos.</li>
+                <li><strong>Abertura imediata de aplicações:</strong> Navegadores, ficheiros pesados e programas abrem instantaneamente.</li>
+                <li><strong>Resistência a quedas:</strong> Como o SSD não possui partes mecânicas móveis, um impacto num notebook não danifica os seus dados.</li>
+                <li><strong>Economia de bateria:</strong> Consome menos energia que um disco rígido tradicional.</li>
+            </ul>
+
+            <div class="bg-cyan-950/60 border-l-4 border-cyan-400 p-4 rounded-r-xl mb-6">
+                <p class="text-cyan-200 text-sm font-semibold">💡 Dica da TechFix: Realizamos a clonagem completa do seu sistema atual para o novo SSD. O seu computador fica até 10x mais rápido sem perder nenhum ficheiro ou programa instalado!</p>
+            </div>
+        `
+    },
+    2: {
+        title: "Manutenção Preventiva vs Correctiva: Como evitar reparações dispendiosas no seu Computador ou Notebook",
+        date: "28 de Outubro, 2026",
+        category: "Manutenção & Dicas",
+        content: `
+            <p class="mb-4">Grande parte das avarias graves em motherboards e placas de vídeo (GPUs) ocorrem por falta de limpezas periódicas e substituição da massa térmica.</p>
+            
+            <h4 class="text-lg font-bold text-white mt-6 mb-3">O Perigo do Sobreaquecimento</h4>
+            <p class="mb-4">Com o tempo, o pó acumula-se nos ventiladores (coolers) e dissipation de calor, bloqueando a saída do ar quente. Além disso, a massa térmica original seca e perde a capacidade de transferir o calor do processador para o dissipador.</p>
+
+            <h4 class="text-lg font-bold text-white mt-6 mb-3">Sinais de que o seu equipamento precisa de manutenção:</h4>
+            <ul class="list-disc pl-5 space-y-2 mb-6">
+                <li>Ventoinhas a girar no máximo e a fazer barulho forte constante.</li>
+                <li>Desligamentos repentinos durante jogos ou tarefas pesadas.</li>
+                <li>Lentidão extrema (Thermal Throttling: o processador reduz o desempenho para não queimar).</li>
+                <li>Aquecimento excessivo na carcaça do notebook ou teclado.</li>
+            </ul>
+        `
+    },
+    3: {
+        title: "O que fazer quando o telemóvel cai na água ou deixa de carregar?",
+        date: "15 de Outubro, 2026",
+        category: "Celulares & Smartphones",
+        content: `
+            <p class="mb-4">Acidentes com líquidos e problemas no conector de carga são duas das causas mais comuns de avarias em smartphones. Saber como agir de imediato pode salvar a motherboard do equipamento.</p>
+            
+            <h4 class="text-lg font-bold text-white mt-6 mb-3">O Telemóvel caiu na água: O que FAZER e O que NÃO FAZER</h4>
+            <ul class="list-disc pl-5 space-y-2 mb-6">
+                <li><strong class="text-red-400">NUNCA:</strong> Não tente ligar o telemóvel e não o coloque à carga. Não use secadores de cabelo (o calor estraga componentes da ecrã e espalha a água interna).</li>
+                <li><strong class="text-red-400">MITO DO ARROZ:</strong> O arroz não absorve a humidade interna dos componentes eletrónicos e deixa resíduos de amido que aceleram a corrosão.</li>
+                <li><strong>O QUE FAZER:</strong> Desligue o aparelho imediatamente, remova a gaveta do cartão SIM/SD e leve-o o mais rápido possível a uma assistência para desoxidação num banho ultrassónico.</li>
+            </ul>
+        `
+    }
+};
+
+// Menu Mobile Toggle
+document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('hidden');
+});
+
+// Modal de Orçamento
+function openModal(serviceName = '') {
+    const modal = document.getElementById('quoteModal');
+    if (serviceName) {
+        document.getElementById('serviceSelect').value = serviceName;
+    }
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+}
+
+function closeModal() {
+    const modal = document.getElementById('quoteModal');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+}
+
+// Modal do Blog (Leitura Completa)
+function openArticleModal(id) {
+    const article = articles[id];
+    if (!article) return;
+
+    document.getElementById('modalCategory').innerText = article.category;
+    document.getElementById('modalDate').innerText = article.date;
+    document.getElementById('modalTitle').innerText = article.title;
+    document.getElementById('modalBody').innerHTML = article.content;
+
+    const modal = document.getElementById('articleModal');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+}
+
+function closeArticleModal() {
+    const modal = document.getElementById('articleModal');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+}
+
+// Envio do formulário direto para o WhatsApp
+document.getElementById('quoteForm')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const clientName = document.getElementById('clientName').value;
+    const clientPhone = document.getElementById('clientPhone').value;
+    const service = document.getElementById('serviceSelect').value;
+    const details = document.getElementById('deviceDetails').value;
+
+    const message = `*Novo Pedido de Orçamento via Site*%0A%0A` +
+                    `*Nome:* ${clientName}%0A` +
+                    `*Contacto:* ${clientPhone}%0A` +
+                    `*Serviço desejado:* ${service}%0A` +
+                    `*Detalhes do Equipamento:* ${details}`;
+
+    window.open(`https://wa.me/5511941332851?text=${message}`, '_blank');
+    closeModal();
+});
+
         <!-- ... -->
     </main>
 
