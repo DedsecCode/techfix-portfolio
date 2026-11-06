@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechFix | Suporte Técnico, Manutenção & Peças</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans antialiased">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 w-full bg-slate-900/95 backdrop-blur border-b border-slate-800 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="bg-gradient-to-tr from-cyan-500 to-blue-600 p-2.5 rounded-xl shadow-lg shadow-cyan-500/20">
+                    <i class="fa-solid fa-wrench text-2xl text-slate-950"></i>
+                </div>
+                <div>
+                    <span class="text-2xl font-black tracking-tight text-white">TECH<span class="text-cyan-400">FIX</span></span>
+                    <span class="block text-[10px] tracking-widest text-slate-400 font-medium uppercase">Assistência & Tecnologia</span>
+                </div>
+            </div>
+
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold">
+                <a href="#servicos" class="hover:text-cyan-400 transition-colors">Serviços</a>
+                <a href="#pecas" class="hover:text-cyan-400 transition-colors">Venda de Peças</a>
+                <a href="#portfolio" class="hover:text-cyan-400 transition-colors">Portfólio</a>
+                <a href="#blog" class="hover:text-cyan-400 transition-colors">Artigos</a>
+                <a href="#sobre" class="hover:text-cyan-400 transition-colors">Sobre</a>
+            </nav>
+
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="https://wa.me/5511941332851?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento." target="_blank" class="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-lg shadow-emerald-500/20 transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> (11) 94133-2851
+                </a>
+            </div>
+
+            <button id="mobile-menu-btn" class="md:hidden text-slate-400 hover:text-white p-2">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-slate-800 bg-slate-900/95 px-4 pt-2 pb-6 space-y-3 text-sm font-semibold">
+            <a href="#servicos" class="block py-2 hover:text-cyan-400">Serviços</a>
+            <a href="#pecas" class="block py-2 hover:text-cyan-400">Venda de Peças</a>
+            <a href="#portfolio" class="block py-2 hover:text-cyan-400">Portfólio</a>
+            <a href="#blog" class="block py-2 hover:text-cyan-400">Artigos</a>
+            <a href="#sobre" class="block py-2 hover:text-cyan-400">Sobre</a>
+            <a href="https://wa.me/5511941332851" target="_blank" class="block w-full text-center bg-emerald-500 text-white py-3 rounded-xl font-bold">WhatsApp: (11) 94133-2851</a>
+        </div>
+    </header>
+
+    <!-- Main Content (Hero, Serviços, Peças, Portfólio, Blog, Contato) -->
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section class="relative py-24 overflow-hidden border-b border-slate-800/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 mb-6">
+                    <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span> Atendimento Especializado & Suporte Remoto
+                </span>
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight mb-6">
+                    Manutenção Especializada, <br class="hidden sm:inline"/><span class="bg-gradient-to-r from-cyan-400 via-teal-300 to-blue-500 bg-clip-text text-transparent">Montagem de PCs e Peças</span>
+                </h1>
+                <p class="text-slate-400 text-lg md:text-xl max-w-3xl mx-auto mb-10">
+                    Soluções completas para Notebooks, Computadores Desktop e Celulares. Do diagnóstico ao upgrade avançado com garantia e transparência.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="openModal()" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold px-8 py-4 rounded-xl shadow-lg shadow-cyan-500/25 transition-all text-base">
+                        Solicitar Orçamento Grátis
+                    </button>
+                    <a href="https://wa.me/5511941332851?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20preciso%20de%20suporte." target="_blank" class="bg-slate-800 hover:bg-slate-700 text-white font-semibold px-8 py-4 rounded-xl border border-slate-700 transition-all flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-emerald-400 text-xl"></i> Falar no WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demais seções (Serviços, Peças, Portfólio, Blog, Modal, Rodapé) mantêm-se aqui -->
+        <!-- ... -->
+    </main>
+
+    <!-- Botão Flutuante de WhatsApp -->
+    <a href="https://wa.me/5511941332851?text=Ol%C3%A1!%20Gostaria%20de%20atendimento." target="_blank" class="fixed bottom-6 right-6 bg-emerald-500 hover:bg-emerald-400 text-white p-4 rounded-full shadow-2xl z-50 transition-all transform hover:scale-110 flex items-center justify-center">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- Scripts Customizados -->
+    <script src="js/main.js"></script>
+</body>
+</html>
